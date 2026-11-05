@@ -1,0 +1,347 @@
+/* ==========================================
+   求人票×採用動画 共催セミナー LP
+   style.css  ─  Mobile-first / GitHub Pages
+   ========================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --lime:     #9fd9f2;
+  --lime-lt:  #e3f4fc;
+  --navy:     #1f2933;
+  --green:    #0193cc;
+  --green-dk: #0178a8;
+  --white:    #ffffff;
+  --off-wh:   #f2f9fd;
+  --border:   #bfe3f3;
+  --gray:     #888;
+  --red:      #d93b3b;
+  --max-w:    900px;
+  --radius:   10px;
+  --font:     'Hiragino Kaku Gothic ProN','Hiragino Sans','Meiryo','Yu Gothic',sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: #e3f3fb;
+  color: var(--navy);
+  padding-bottom: 80px;
+}
+
+/* ── LP ラッパー ── */
+.lp-wrapper {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: 0 0 40px rgba(0,0,0,.12);
+}
+
+/* ── 画像セクション ── */
+.lp-section { width: 100%; }
+
+.lp-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================
+   フォームセクション
+   ========================================== */
+.form-section {
+  background: var(--off-wh);
+  padding: 52px 24px 64px;
+}
+
+.form-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.form-eyebrow {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.form-title {
+  font-size: clamp(20px, 5vw, 26px);
+  font-weight: 900;
+  text-align: center;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.form-sub {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 32px;
+}
+
+/* ── 送信完了メッセージ ── */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--white);
+  border-radius: 16px;
+  border: 2px solid var(--lime);
+  margin-bottom: 24px;
+}
+
+.success-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.success-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.success-body {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.success-company {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+/* ── フォーム本体 ── */
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.badge.required { background: var(--red); color: var(--white); }
+.badge.optional { background: #bbb; color: var(--white); }
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--navy);
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(1,147,204,.18);
+}
+
+.select-wrap { position: relative; }
+
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--navy);
+  pointer-events: none;
+}
+
+.select-wrap select { padding-right: 44px; cursor: pointer; }
+
+/* ── 送信ボタン ── */
+.submit-btn {
+  position: relative;
+  overflow: hidden;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 20px 32px;
+  font-size: 18px;
+  font-weight: 900;
+  font-family: var(--font);
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  letter-spacing: .06em;
+  box-shadow: 0 6px 20px rgba(1,147,204,.35);
+  transition: background .2s, transform .1s, box-shadow .2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--green-dk);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(1,147,204,.45);
+}
+
+.submit-btn:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+
+.form-note {
+  font-size: 12px;
+  color: var(--gray);
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+.form-company {
+  font-size: 12px;
+  color: var(--gray);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.form-company a { color: var(--green); text-decoration: none; }
+
+/* ==========================================
+   固定CTA
+   ========================================== */
+.fixed-cta {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: calc(100% - 32px);
+  max-width: 480px;
+}
+
+.fixed-cta { transition: opacity .25s, visibility .25s; }
+.fixed-cta.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.fixed-cta-btn {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  background: #e8590c;
+  color: var(--white);
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 24px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 900;
+  font-family: var(--font);
+  letter-spacing: .06em;
+  box-shadow: 0 6px 24px rgba(232,89,12,.45), 0 2px 8px rgba(0,0,0,.2);
+  transition: background .2s, transform .1s, box-shadow .2s;
+}
+
+.fixed-cta-btn:hover {
+  background: #c94a08;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   光るアニメーション
+   ========================================== */
+.btn-shine {
+  position: absolute;
+  top: 0; left: -120%;
+  width: 55%; height: 100%;
+  background: linear-gradient(
+    118deg,
+    transparent 0%, transparent 30%,
+    rgba(255,255,255,.38) 50%,
+    transparent 70%, transparent 100%
+  );
+  animation: btn-shine 3.8s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes btn-shine {
+  0%   { left: -120%; opacity: 0; }
+  10%  { opacity: 1; }
+  40%  { left: 120%; opacity: 0; }
+  100% { left: 120%; opacity: 0; }
+}
+
+.submit-btn .btn-shine { animation-delay: 1.8s; }
+
+/* ── フッター ── */
+.lp-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.5);
+  text-align: center;
+  font-size: 12px;
+  padding: 20px 16px;
+}
+
+/* ── PC対応 ── */
+@media (min-width: 640px) {
+  .form-title { font-size: 28px; }
+  .fixed-cta-btn { font-size: 18px; padding: 17px 32px; }
+}
+
+@media (min-width: 900px) {
+  .form-section { padding: 64px 48px 80px; }
+}
+
+/* ── アクセシビリティ ── */
+@media (prefers-reduced-motion: reduce) {
+  .btn-shine { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ── 開催日時（固定表示） ── */
+.form-label { font-size: 14px; font-weight: 700; color: var(--navy); }
+.fixed-date {
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--lime-lt);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.form-note a { color: var(--green-dk); text-decoration: underline; }
